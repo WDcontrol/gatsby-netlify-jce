@@ -19,4 +19,4 @@ collections:
           label: Description,
           widget: markdown,
         }
-      - { name: image, required: true, label: Image, widget: Image }
+      - { name: image, required: true, label: Image, widget: image }
