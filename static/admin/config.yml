@@ -20,3 +20,5 @@ collections:
           widget: markdown,
         }
       - { name: image, required: true, label: Image, widget: image }
+      - { name: sku, required: false, label: Sku }
+      - { name: path, required: false, label: Path }
