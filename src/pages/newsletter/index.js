@@ -17,7 +17,7 @@ const Index = () => {
     console.log(inputForm)
     axios
       .post(
-        `https://zealous-clarke-80bed4.netlify.app/.netlify/functions/subscibe&mail=${inputForm.email}`
+        `https://zealous-clarke-80bed4.netlify.app/.netlify/functions/subscibe?mail=${inputForm.email}`
       )
       .then(res => {
         console.log(res)
