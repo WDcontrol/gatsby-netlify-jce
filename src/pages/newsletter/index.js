@@ -5,13 +5,13 @@ const Index = () => {
     email: "",
   })
 
-  const handleChange = () => [
+  const handleChange = e => [
     setInputForm({
       [e.target.name]: e.target.value,
     }),
   ]
 
-  const submitForm = () => {
+  const submitForm = e => {
     e.preventDefault()
     console.log(inputForm)
   }
