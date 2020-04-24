@@ -4,7 +4,7 @@ require("dotenv").config()
 exports.handler = function (event, context, callback) {
   axios
     .post(
-      "https://us8.api.mailchimp.com/3.0/lists/ddc42508da/members",
+      "https://us8.api.mailchimp.com/3.0/lists/584c8174e2/members",
       {
         email_address: event.queryStringParameters.mail,
         status: "subscribed",
