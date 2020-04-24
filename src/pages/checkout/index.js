@@ -12,12 +12,12 @@ const Index = () => {
       .redirectToCheckout({
         items: [
           {
-            sku: "sku_H9mHAmJ32Mf9uQ",
+            sku: "sku_H9mYBvTf8kT9Rj",
             quantity: 1,
           },
         ],
-        successUrl: "",
-        cancelUrl: "",
+        successUrl: "https://zealous-clarke-80bed4.netlify.app/success/",
+        cancelUrl: "https://zealous-clarke-80bed4.netlify.app/fail/",
       })
       .then(res => {})
   }
