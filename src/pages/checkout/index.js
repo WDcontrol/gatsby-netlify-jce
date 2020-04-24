@@ -18,8 +18,8 @@ const Index = () => {
           quantity: 1,
         },
       ],
-      successUrl: "https://www.example.com/success",
-      cancelUrl: "https://www.example.com/cancel",
+      successUrl: "https://zealous-clarke-80bed4.netlify.app/success",
+      cancelUrl: "https://zealous-clarke-80bed4.netlify.app/cancel",
     })
   }
 
