@@ -6,7 +6,7 @@ exports.handler = function (event, context, callback) {
     .get(
       "http://api.openweathermap.org/data/2.5/weather?q=" +
         city +
-        "&APPID=28d34498e1077e332fd570e1efbf1262"
+        "&APPID=16e194441a5b8e37c9f463942da1a344"
     )
     .then(response => {
       console.log(response)
