@@ -24,7 +24,7 @@ const Index = () => {
 
   return (
     <div>
-      <form onSubmit={submitForm}>
+      <form onSubmit={checkoutButton}>
         <button type="submit">Payer</button>
       </form>
     </div>
