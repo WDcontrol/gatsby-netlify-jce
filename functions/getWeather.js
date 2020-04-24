@@ -4,7 +4,7 @@ exports.handler = function (event, context, callback) {
   let city = event.queryStringParameters.city
   axios
     .get(
-      `http://api.openweathermap.org/data/2.5/weather?q=paris&APPID=2b44a59ccf84efc8a751a69269705b37`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=2b44a59ccf84efc8a751a69269705b37`
     )
     .then(response => {
       console.log(response)
@@ -12,7 +12,7 @@ exports.handler = function (event, context, callback) {
       let tempCelcius = tempKelvin - 273.15
       let wind = response.data.wind.speed
       callback(null, {
-        statusCode: 200,
+        statusCode: 400,
         body: JSON.stringify({ temp: tempCelcius + "C°", wind: wind + "m/s" }),
       })
     })
