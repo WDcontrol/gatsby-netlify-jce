@@ -14,7 +14,6 @@ const Index = () => {
   const submitForm = e => {
     e.preventDefault()
     console.log(inputForm)
-    await
   }
 
   return (
