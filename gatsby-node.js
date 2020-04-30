@@ -13,10 +13,7 @@ exports.CreatePages = async ({ actions, graphql }) => {
         edges {
           node {
             frontmatter {
-              description
-              image
-              price
-              title
+              path
             }
             fileAbsolutePath
           }
@@ -24,7 +21,6 @@ exports.CreatePages = async ({ actions, graphql }) => {
       }
     }
   `)
-
   products.allMarkdownRemark.edges.forEach(edge => {
     const path = edge.node.frontmatter.path
     actions.createPages({
