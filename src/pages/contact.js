@@ -1,5 +1,4 @@
 import React from "react"
-import Success from "./success"
 
 const Contact = () => {
   return (
