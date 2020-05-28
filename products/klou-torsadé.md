@@ -1,0 +1,9 @@
+---
+title: Klou torsadé
+price: "1"
+description: Klou torsadé
+image: /assets/torsadé.png
+sku: /twisted
+type: "1"
+gold: false
+---
