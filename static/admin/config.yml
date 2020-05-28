@@ -55,6 +55,6 @@ collections:
           widget: markdown,
         }
       - { name: image, required: true, label: Image, widget: image }
-      - { name: slug, required: false, label: Slug }
+      - { name: slug, required: true, label: Slug }
       - { name: date, label: Date, widget: date }
       - { name: editor, label: Editor, required: true }
