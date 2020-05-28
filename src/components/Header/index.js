@@ -26,11 +26,7 @@ const Header = () => {
 
   const CustomOption = data => {
     // set active select
-    if (typeof window === "undefined") {
-      global.window = {}
-    }
-
-    if (window) {
+    if (typeof window !== "undefined") {
       let selected = window.location.pathname === data.value ? true : false
       return (
         <option selected={selected} value={data.value}>
