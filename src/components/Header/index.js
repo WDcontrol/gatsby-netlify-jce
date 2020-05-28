@@ -26,12 +26,14 @@ const Header = () => {
 
   const CustomOption = data => {
     // set active select
-    let selected = window.location.pathname === data.value ? true : false
-    return (
-      <option selected={selected} value={data.value}>
-        {data.label}
-      </option>
-    )
+    if (window) {
+      let selected = window.location.pathname === data.value ? true : false
+      return (
+        <option selected={selected} value={data.value}>
+          {data.label}
+        </option>
+      )
+    }
   }
 
   return (
