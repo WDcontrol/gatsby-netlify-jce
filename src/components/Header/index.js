@@ -18,7 +18,6 @@ const Header = () => {
       identity.user.user_metadata.name) ||
     "NoName"
   const isLoggedIn = identity && identity.isLoggedIn
-  console.log(JSON.stringify(identity))
 
   const onChange = e => {
     navigate(`/${e.target.value}`)
@@ -34,6 +33,7 @@ const Header = () => {
         </option>
       )
     }
+    return <option></option>
   }
 
   return (
