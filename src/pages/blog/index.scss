@@ -1,0 +1,10 @@
+.Blog {
+  .article {
+    display: flex;
+    flex-direction: column;
+    &__item {
+      display: flex;
+      background-color: red;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright svg {
+  height: 14px;
+}

@@ -21,4 +21,40 @@ collections:
         }
       - { name: image, required: true, label: Image, widget: image }
       - { name: sku, required: false, label: Sku }
-      - { name: path, required: false, label: Path }
+      - { name: slug, required: false, label: Slug }
+      - {
+          name: type,
+          required: true,
+          label: Type,
+          widget: "select",
+          options:
+            [
+              { label: "Klou à tête plate", value: "0" },
+              { label: "Klou torsadé", value: "1" },
+              { label: "iKloud", value: "2" },
+              { label: "Bracelet Klou", value: "3" },
+            ],
+        }
+      - {
+          name: gold,
+          required: true,
+          label: Gold,
+          widget: "boolean",
+          default: false,
+        }
+  - name: article
+    label: Article
+    folder: articles
+    create: true
+    fields:
+      - { name: title, required: true, label: Titre }
+      - {
+          name: description,
+          required: true,
+          label: Description,
+          widget: markdown,
+        }
+      - { name: image, required: true, label: Image, widget: image }
+      - { name: slug, required: false, label: Slug }
+      - { name: date, label: Date, widget: date }
+      - { name: editor, label: Editor, required: true }

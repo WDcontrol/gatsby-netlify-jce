@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { navigate, Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import IdentityModal, {
@@ -6,6 +6,7 @@ import IdentityModal, {
 } from "react-netlify-identity-widget"
 import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CS
 import "./style.css"
+import { ShoppingCart } from "@material-ui/icons"
 
 const Header = () => {
   const identity = useIdentityContext()
@@ -17,20 +18,41 @@ const Header = () => {
       identity.user.user_metadata.name) ||
     "NoName"
   const isLoggedIn = identity && identity.isLoggedIn
-
   console.log(JSON.stringify(identity))
+
+  const onChange = e => {
+    navigate(`/${e.target.value}`)
+  }
+
+  const CustomOption = data => {
+    // set active select
+    let selected = window.location.pathname === data.value ? true : false
+    return (
+      <option selected={selected} value={data.value}>
+        {data.label}
+      </option>
+    )
+  }
 
   return (
     <header>
       <nav className="header__nav">
-        <select className="nav__item">
-          <option value="">Eshop</option>
-          <Link to="/products">Eshop</Link>
-        </select>
-        <div className="toolbar">
-          <button className="btn" onClick={() => setDialog(true)}>
-            {isLoggedIn ? `Hello ${name}, Log out here!` : "LOG IN"}
-          </button>
+        <Link className="nav__main-link" to="/">
+          Klous
+        </Link>
+        <div className="nav__select-container">
+          <select onChange={onChange} className="nav__select">
+            <CustomOption value="/" label="Home" />
+            <CustomOption value="/products" label="Products" />
+            <CustomOption value="/contact" label="Contacts" />
+            <CustomOption value="/blog" label="Blog" />
+          </select>
+        </div>
+        <div className="nav__section">
+          <div className="nav__link" onClick={() => setDialog(true)}>
+            {isLoggedIn ? `Hello ${name}, Log out here!` : `Log In`}
+          </div>
+          <ShoppingCart className="nav__link" />
         </div>
       </nav>
       <IdentityModal

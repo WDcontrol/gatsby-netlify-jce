@@ -1,11 +1,11 @@
 exports.createPages = async function ({ actions, graphql }) {
   const products = await graphql(`
     query myQuery {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/products/" } }) {
         edges {
           node {
             frontmatter {
-              path
+              slug
             }
           }
         }
@@ -15,11 +15,11 @@ exports.createPages = async function ({ actions, graphql }) {
 
   const articles = await graphql(`
     query myQuery {
-      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/product/" } }) {
+      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/articles/" } }) {
         edges {
           node {
             frontmatter {
-              path
+              slug
             }
           }
         }
@@ -28,20 +28,20 @@ exports.createPages = async function ({ actions, graphql }) {
   `)
 
   products.data.allMarkdownRemark.edges.forEach(edge => {
-    const path = edge.node.frontmatter.path
+    const slug = edge.node.frontmatter.slug
     actions.createPage({
-      path: path,
+      path: "/products/" + slug,
       component: require.resolve("./src/templates/productTemplate.js"),
-      context: { path: path },
+      context: { slug: slug },
     })
   })
 
   articles.data.allMarkdownRemark.edges.forEach(edge => {
-    const path = edge.node.frontmatter.path
+    const slug = edge.node.frontmatter.slug
     actions.createPage({
-      path: path,
+      path: "/articles/" + slug,
       component: require.resolve("./src/templates/articleTemplate.js"),
-      context: { path: path },
+      context: { slug: slug },
     })
   })
 }

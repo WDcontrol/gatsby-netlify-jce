@@ -1,11 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Layout from "../components/Layout"
 
 export const query = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        description
+        image
       }
     }
   }
@@ -13,8 +16,8 @@ export const query = graphql`
 
 export default ({ data }) => {
   return (
-    <div>
+    <Layout>
       <h1>{data.markdownRemark.frontmatter.title}</h1>
-    </div>
+    </Layout>
   )
 }
