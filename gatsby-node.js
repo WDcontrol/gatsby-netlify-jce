@@ -30,7 +30,7 @@ exports.createPages = async function ({ actions, graphql }) {
   products.data.allMarkdownRemark.edges.forEach(edge => {
     const slug = edge.node.frontmatter.slug
     actions.createPage({
-      path: "/products/" + slug,
+      path: slug,
       component: require.resolve("./src/templates/productTemplate.js"),
       context: { slug: slug },
     })
@@ -39,7 +39,7 @@ exports.createPages = async function ({ actions, graphql }) {
   articles.data.allMarkdownRemark.edges.forEach(edge => {
     const slug = edge.node.frontmatter.slug
     actions.createPage({
-      path: "/articles/" + slug,
+      path: slug,
       component: require.resolve("./src/templates/articleTemplate.js"),
       context: { slug: slug },
     })
