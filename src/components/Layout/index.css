@@ -1,9 +1,14 @@
 :root {
-  --main-color: #ffffff;
-  /* --main-color: #f4ecd6; */
-  /* --secondary-color: #847996; */
-  --secondary-color: #000000;
+  /* --main-color: #ffffff; */
+  --main-color: #f4ecd6;
+  --secondary-color: #847996;
+  --third-color: #62a7a7;
+  --fourth-color: #310a31;
+  /* --secondary-color: #000000; */
 }
+
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap");
 
 @font-face {
   font-family: "Futura";
@@ -21,7 +26,7 @@ html {
 }
 
 body {
-  font-family: "Futura";
+  font-family: "Open Sans";
   background-color: var(--main-color);
   margin: 0;
   padding: 0;

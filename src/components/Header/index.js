@@ -6,8 +6,7 @@ import IdentityModal, {
 } from "react-netlify-identity-widget"
 import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CS
 import "./style.css"
-import { ShoppingCart } from "@material-ui/icons"
-
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
 const Header = () => {
   const identity = useIdentityContext()
   const [dialog, setDialog] = React.useState(false)
@@ -54,7 +53,8 @@ const Header = () => {
           <div className="nav__link" onClick={() => setDialog(true)}>
             {isLoggedIn ? `Hello ${name}, Log out here!` : `Log In`}
           </div>
-          <ShoppingCart className="nav__link" />
+          <ShoppingBasketIcon className="nav__link" />
+          <div className="nav__link_notif">1</div>
         </div>
       </nav>
       <IdentityModal

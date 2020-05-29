@@ -40,6 +40,21 @@
   align-items: center;
 }
 
+.nav__link_notif {
+  position: absolute;
+  margin-left: 43px;
+  margin-top: -7px;
+  height: 18px;
+  width: 18px;
+  border-radius: 50px;
+  background-color: red;
+  color: var(--main-color);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 a {
   text-decoration: none;
 }
