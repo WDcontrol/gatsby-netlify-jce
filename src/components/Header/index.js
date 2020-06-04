@@ -14,7 +14,7 @@ const Header = () => {
     (identity &&
       identity.user &&
       identity.user.user_metadata &&
-      identity.user.user_metadata.name) ||
+      identity.user.user_metadata.full_name) ||
     "NoName"
   const isLoggedIn = identity && identity.isLoggedIn
 
@@ -47,11 +47,12 @@ const Header = () => {
             <CustomOption value="/products" label="Products" />
             <CustomOption value="/contact" label="Contacts" />
             <CustomOption value="/blog" label="Blog" />
+            <CustomOption value="/profile" label="Profile" />
           </select>
         </div>
         <div className="nav__section">
           <div className="nav__link" onClick={() => setDialog(true)}>
-            {isLoggedIn ? `Hello ${name}, Log out here!` : `Log In`}
+            {isLoggedIn ? `${name}` : `Log In`}
           </div>
           <ShoppingBasketIcon className="nav__link" />
           <div className="nav__link_notif">1</div>
