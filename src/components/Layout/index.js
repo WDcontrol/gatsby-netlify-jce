@@ -1,15 +1,14 @@
 import React from "react"
 import Header from "../Header"
-import Footer from "../Footer"
 import "./index.css"
+import { CartProvider } from "../../context/cart"
 
 const index = ({ children }) => {
   return (
-    <>
+    <CartProvider>
       <Header />
       <main>{children}</main>
-      {/* <Footer /> */}
-    </>
+    </CartProvider>
   )
 }
 export default index

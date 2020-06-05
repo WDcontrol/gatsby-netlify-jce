@@ -1,12 +1,14 @@
 import { navigate, Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useContext } from "react"
 import IdentityModal, {
   useIdentityContext,
 } from "react-netlify-identity-widget"
 import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CS
 import "./style.css"
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
+import { CartContext } from "../../context/cart"
+
 const Header = () => {
   const identity = useIdentityContext()
   const [dialog, setDialog] = React.useState(false)
@@ -34,6 +36,10 @@ const Header = () => {
     }
     return <option></option>
   }
+
+  const { cart, setCart } = useContext(CartContext)
+
+  console.log(cart)
 
   return (
     <header>
