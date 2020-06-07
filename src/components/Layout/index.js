@@ -1,14 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import Header from "../Header"
 import "./index.css"
-import { CartProvider } from "../../context/cart"
+import { CartContext } from "../../context/cartContext"
 
-const index = ({ children }) => {
+const Index = ({ children }) => {
   return (
-    <CartProvider>
+    <div>
       <Header />
       <main>{children}</main>
-    </CartProvider>
+    </div>
   )
 }
-export default index
+export default Index

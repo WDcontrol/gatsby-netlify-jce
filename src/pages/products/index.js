@@ -31,6 +31,7 @@ const Products = ({ data }) => {
           {data.allMarkdownRemark.edges.map(product => {
             return (
               <Link
+                key={product}
                 className="product"
                 to={`/products/${product.node.frontmatter.slug}`}
               >

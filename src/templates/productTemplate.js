@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import React from "react"
+import React, { useContext } from "react"
+import { CartContext } from "../context/cartContext"
 
 export const query = graphql`
   query($slug: String!) {
@@ -17,12 +18,16 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const addItem = () => {}
+  const Render = () => {
+    const cart = useContext(CartContext)
+    const slug = data.markdownRemark.frontmatter.slug
+    return (
+      <Layout>
+        <h1>{data.markdownRemark.frontmatter.title}</h1>
+        <button onClick={() => cart.addItem(slug)}>elem</button>
+      </Layout>
+    )
+  }
 
-  return (
-    <Layout>
-      <h1>{data.markdownRemark.frontmatter.title}</h1>
-      <button onClick={addItem}>elem</button>
-    </Layout>
-  )
+  return <Render />
 }

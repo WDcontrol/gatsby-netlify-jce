@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import "./index.scss"
 import Layout from "../../components/Layout"
 import { useIdentityContext } from "react-netlify-identity-widget"
