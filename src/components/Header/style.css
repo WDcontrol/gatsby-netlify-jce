@@ -19,6 +19,9 @@
 .nav__section .nav__link {
   padding: 0 10px;
 }
+.nav__select-container a {
+  margin: 0 5px;
+}
 
 .nav__main-link {
   font-size: 22px;

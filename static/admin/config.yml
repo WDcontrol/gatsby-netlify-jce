@@ -20,7 +20,7 @@ collections:
           widget: markdown,
         }
       - { name: image, required: true, label: Image, widget: image }
-      - { name: sku, required: false, label: Sku }
+      - { name: price_stripe, required: false, label: Price Stripe }
       - { name: slug, required: false, label: Slug }
       - {
           name: type,

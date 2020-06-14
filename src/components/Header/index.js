@@ -23,38 +23,15 @@ const Header = () => {
     "NoName"
   const isLoggedIn = identity && identity.isLoggedIn
 
-  const onChange = e => {
-    navigate(`/${e.target.value}`)
-  }
-
-  const CustomOption = data => {
-    // set active select
-    if (typeof window !== "undefined") {
-      let selected = window.location.pathname === data.value ? true : false
-      return (
-        <option selected={selected} value={data.value}>
-          {data.label}
-        </option>
-      )
-    }
-    return <option></option>
-  }
   return (
     <header>
-      {JSON.stringify(cart)}
       <nav className="header__nav">
         <Link className="nav__main-link" to="/">
           Klous
         </Link>
         <div className="nav__select-container">
-          <select onChange={onChange} className="nav__select">
-            <CustomOption value="/" label="Home" />
-            <CustomOption value="/products" label="Products" />
-            <CustomOption value="/contact" label="Contacts" />
-            <CustomOption value="/blog" label="Blog" />
-            <CustomOption value="/profile" label="Profile" />
-            <CustomOption value="/cart" label="Cart" />
-          </select>
+          <Link to="/products">Products</Link>
+          <Link to="/blog">Blog</Link>
         </div>
         <div className="nav__section">
           <div className="nav__link" onClick={() => setDialog(true)}>

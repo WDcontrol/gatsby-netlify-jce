@@ -1,11 +1,20 @@
 import React from "react"
 import { useState, useEffect } from "react"
 
-const defaultCart = JSON.parse(localStorage.getItem("cart")) || {}
+var _ = require("lodash")
+
+const isBrowser = () => typeof window !== "undefined"
+
+const defaultCart = isBrowser()
+  ? JSON.parse(localStorage.getItem("cart")) || {}
+  : {}
 
 const defaultState = {
   cart: {},
   addItem: () => {},
+  removeItem: () => {},
+  emptyCart: () => {},
+  deleteItem: () => {},
 }
 
 const CartContext = React.createContext(defaultState)
@@ -22,8 +31,16 @@ const CartProvider = props => {
     setCart({})
   }
 
+  const removeItem = slug => {
+    cart[slug] && cart[slug] > 0 && setCart({ ...cart, [slug]: cart[slug] - 1 })
+  }
+
+  const deleteItem = slug => {
+    setCart(_.omit(cart, slug))
+  }
+
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart))
+    isBrowser() && localStorage.setItem("cart", JSON.stringify(cart))
   })
 
   return (
@@ -31,6 +48,9 @@ const CartProvider = props => {
       value={{
         cart,
         addItem: addItem,
+        removeItem: removeItem,
+        emptyCart: emptyCart,
+        deleteItem: deleteItem,
       }}
     >
       {props.children}
